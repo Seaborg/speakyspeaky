@@ -1,0 +1,45 @@
+<!-- wrap the entire page -->
+<div data-role="page">
+
+<!-- wrap the header -->
+<div data-role="header">
+  <h1>New <%= @everydayphrase.english %></h1>
+    <a class="cancel" href="<%= url_for :action => :index %>">Cancel</a>
+</div>
+
+<!-- wrapped in a data-role div named content, replaces the content class in the generated code -->
+<div data-role="content">
+  <form method="post" action="<%= url_for :action => :create %>">
+    <input type="hidden" name="id" value="<%= @everydayphrase.object %>"/>
+    <!-- data-role added to the listview -->
+    <ul data-role="listview">
+
+          <li>
+          <!-- list items unchanged from original Rhodes generated code -->
+          <!-- Each input field has a label and placeholder -->
+            <label for="everydayphrase[english]" class="fieldLabel">English Phrase</label>
+            <input type="text" name="everydayphrase[english]" <%=
+            placeholder("English") %> />
+          </li>
+
+          <!-- rest of product attribute list items -->
+		<li>
+          <!-- list items unchanged from original Rhodes generated code -->
+          <!-- Each input field has a label and placeholder -->
+            <label for="everydayphrase[polish]" class="fieldLabel">Polish Phrase</label>
+            <input type="text" name="everydayphrase[polish]" <%=
+            placeholder("Polish") %> />
+          </li>
+		<li>
+		<!-- list items unchanged from original Rhodes generated code -->
+		<!-- Each input field has a label and placeholder -->
+		  <label for="everydayphrase[permalink]" class="fieldLabel">Permalink</label>
+		  <input type="text" name="everydayphrase[permalink]" <%=
+		  placeholder("Permalink") %> />
+		</li>
+
+    </ul>
+        <br/>
+        <button type="submit" data-theme="a" name="submit" value="submit-value" class="ui-btn-hidden">Submit</button>
+  </form>
+</div>

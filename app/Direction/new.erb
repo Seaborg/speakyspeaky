@@ -1,0 +1,33 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>New <%= @direction.title %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="back" data-direction="reverse">Cancel</a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :create %>">
+      <input type="hidden" name="id" value="<%= @direction.object %>"/>
+
+      
+          <div data-role="fieldcontain">
+            <label for="direction[polish]" class="fieldLabel">Polish</label>
+            <input type="text" id="direction[polish]" name="direction[polish]" <%= placeholder("Polish") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="direction[english]" class="fieldLabel">English</label>
+            <input type="text" id="direction[english]" name="direction[english]" <%= placeholder("English") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="direction[permalink]" class="fieldLabel">Permalink</label>
+            <input type="text" id="direction[permalink]" name="direction[permalink]" <%= placeholder("Permalink") %> />
+          </div>
+      
+
+      <input type="submit" value="Create"/>
+    </form>
+  </div>
+
+</div>

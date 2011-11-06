@@ -1,0 +1,32 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Edit <%= @airport.polish %></h1>
+    <a href="<%= url_for :action => :show, :id => @airport.object %>" class="ui-btn-left" data-icon="back" data-direction="reverse">Cancel</a>
+    <a href="<%= url_for :action => :delete, :id => @airport.object %>" class="ui-btn-right" data-icon="delete" data-direction="reverse">Delete</a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+      <input type="hidden" name="id" value="<%= @airport.object %>"/>
+      
+          <div data-role="fieldcontain">
+            <label for="airport[polish]" class="fieldLabel">Polish</label>
+            <input type="text" id="airport[polish]" name="airport[polish]" value="<%= @airport.polish %>" <%= placeholder( "Polish" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="airport[english]" class="fieldLabel">English</label>
+            <input type="text" id="airport[english]" name="airport[english]" value="<%= @airport.english %>" <%= placeholder( "English" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="airport[permalink]" class="fieldLabel">Permalink</label>
+            <input type="text" id="airport[permalink]" name="airport[permalink]" value="<%= @airport.permalink %>" <%= placeholder( "Permalink" ) %> />
+          </div>
+      
+      <input type="submit" value="Update"/>
+    </form>
+  </div>
+
+</div>

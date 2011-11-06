@@ -1,0 +1,33 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>New <%= @airport.title %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="back" data-direction="reverse">Cancel</a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :create %>">
+      <input type="hidden" name="id" value="<%= @airport.object %>"/>
+
+      
+          <div data-role="fieldcontain">
+            <label for="airport[polish]" class="fieldLabel">Polish</label>
+            <input type="text" id="airport[polish]" name="airport[polish]" <%= placeholder("Polish") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="airport[english]" class="fieldLabel">English</label>
+            <input type="text" id="airport[english]" name="airport[english]" <%= placeholder("English") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="airport[permalink]" class="fieldLabel">Permalink</label>
+            <input type="text" id="airport[permalink]" name="airport[permalink]" <%= placeholder("Permalink") %> />
+          </div>
+      
+
+      <input type="submit" value="Create"/>
+    </form>
+  </div>
+
+</div>

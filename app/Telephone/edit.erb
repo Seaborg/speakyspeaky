@@ -1,0 +1,32 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Edit <%= @telephone.polish %></h1>
+    <a href="<%= url_for :action => :show, :id => @telephone.object %>" class="ui-btn-left" data-icon="back" data-direction="reverse">Cancel</a>
+    <a href="<%= url_for :action => :delete, :id => @telephone.object %>" class="ui-btn-right" data-icon="delete" data-direction="reverse">Delete</a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+      <input type="hidden" name="id" value="<%= @telephone.object %>"/>
+      
+          <div data-role="fieldcontain">
+            <label for="telephone[polish]" class="fieldLabel">Polish</label>
+            <input type="text" id="telephone[polish]" name="telephone[polish]" value="<%= @telephone.polish %>" <%= placeholder( "Polish" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="telephone[english]" class="fieldLabel">English</label>
+            <input type="text" id="telephone[english]" name="telephone[english]" value="<%= @telephone.english %>" <%= placeholder( "English" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="telephone[permalink]" class="fieldLabel">Permalink</label>
+            <input type="text" id="telephone[permalink]" name="telephone[permalink]" value="<%= @telephone.permalink %>" <%= placeholder( "Permalink" ) %> />
+          </div>
+      
+      <input type="submit" value="Update"/>
+    </form>
+  </div>
+
+</div>

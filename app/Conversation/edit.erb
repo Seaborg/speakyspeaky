@@ -1,0 +1,32 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Edit <%= @conversation.polish %></h1>
+    <a href="<%= url_for :action => :show, :id => @conversation.object %>" class="ui-btn-left" data-icon="back" data-direction="reverse">Cancel</a>
+    <a href="<%= url_for :action => :delete, :id => @conversation.object %>" class="ui-btn-right" data-icon="delete" data-direction="reverse">Delete</a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+      <input type="hidden" name="id" value="<%= @conversation.object %>"/>
+      
+          <div data-role="fieldcontain">
+            <label for="conversation[polish]" class="fieldLabel">Polish</label>
+            <input type="text" id="conversation[polish]" name="conversation[polish]" value="<%= @conversation.polish %>" <%= placeholder( "Polish" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="conversation[english]" class="fieldLabel">English</label>
+            <input type="text" id="conversation[english]" name="conversation[english]" value="<%= @conversation.english %>" <%= placeholder( "English" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="conversation[permalink]" class="fieldLabel">Permalink</label>
+            <input type="text" id="conversation[permalink]" name="conversation[permalink]" value="<%= @conversation.permalink %>" <%= placeholder( "Permalink" ) %> />
+          </div>
+      
+      <input type="submit" value="Update"/>
+    </form>
+  </div>
+
+</div>

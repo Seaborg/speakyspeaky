@@ -1,0 +1,59 @@
+<!-- div data-role page replaces div class pageTitle and warps the entire page -->
+<div data-role="page"data-theme="e">
+
+<!-- the h1 header and the buttons are inside a data-role div named header -->
+<div data-role="header">
+  <h1>Taxi</h1>
+  <!-- back button for home, checkbox for new -->
+  <a data-icon="back"  href="<%= Rho::RhoConfig.start_path %>">Home</a>
+  <a data-icon="check" href="<%= url_for :action => :new %>">New</a>
+</div>
+<!-- Add div data-roles for the content and listview. The list item inside is the same as for the generated Rhodes -->
+<script>
+function EvalSound(soundobj) {
+  var thissound=document.getElementById(soundobj);
+  thissound.Play();
+}
+</script>
+<div data-role="content" data-theme="f">
+	<% @taxis.each do |taxi| %>
+		<style>
+	    .ui-btn-taxi{white-space: normal;}
+		.ui-collapsible-heading { font-size: 13px; display: block; margin: 0 -8px; padding: 0; border-width: 0 0 1px 0; position: relative; }
+		/* grid j: 5/45/5/45 */
+		.ui-grid-j .ui-block-a, .ui-grid-j .ui-block-c { width: 10%; }
+		.ui-grid-j .ui-block-b, .ui-grid-j .ui-block-d { width: 40%; }
+		.ui-grid-j .ui-block-a { clear: left; }
+	    </style>
+		<div data-role="collapsible-set" style='padding-top:0px; padding-bottom:0px; margin-top:0px; margin-bottom:0px; font-size: 12px'>
+			<div data-role="collapsible" data-collapsed="true">
+				
+				<h3><%= taxi.english %></h3>
+				<fieldset class="ui-grid-j">
+					<div class="ui-block-a" style='padding-top: 10px'><center><img src="/public/images/cloudM.png"> </center></div>
+					<div class="ui-block-b"><a onclick="this.firstChild.play()"><audio src="<%= '/public/sounds/'+'M'+"#{taxi.permalink}"+'eng'+'.mp3'%>"></audio><button type="submit" data-theme="c">Male</a></button></div>
+					<div class="ui-block-c" style='padding-top: 10px'><center><img src="/public/images/cloudF.png"></center></div>
+					<div class="ui-block-d"><a onclick="this.firstChild.play()"><audio src="<%= '/public/sounds/'+'F'+"#{taxi.permalink}"+'eng'+'.mp3'%>"></audio><button type="submit" data-theme="c">Female</a></button></div>	   
+				</fieldset>
+					
+<a href="#", data-role="button" data-inline="false", style='color: #993333; taxi-decoration: none '><%= taxi.polish %></a><!-- Headline taxi -->				
+				
+				<fieldset class="ui-grid-j">
+					<div class="ui-block-a" style='padding-top: 10px'><center><img src="/public/images/cloudM.png"> </center></div>
+					<div class="ui-block-b"><a onclick="this.firstChild.play()"><audio src="<%= '/public/sounds/'+'M'+"#{taxi.permalink}"+'pol'+'.mp3'%>"></audio><button type="submit" data-theme="c">Mężczyzna</a></button></div>
+					<div class="ui-block-c" style='padding-top: 10px'><center><img src="/public/images/cloudF.png"></center></div>
+					<div class="ui-block-d"><a onclick="this.firstChild.play()"><audio src="<%= '/public/sounds/'+'F'+"#{taxi.permalink}"+'pol'+'.mp3'%>"></audio><button type="submit" data-theme="c">Kobieta</a></button></div>	   
+				</fieldset>
+			</div>
+		</div>
+		<% end %>
+</div>
+<div data-role="footer", data-position="fixed">
+	<div data-role="navbar">
+		<ul>
+			<li><a href="/app/Suggestion/" data-icon="check" data-iconpos="notaxi" data-iconpos="right">SUGGEST</a></li>
+			<li><a href="/app/Howto/" data-icon="info" data-iconpos="notaxi" data-iconpos="right">HOW TO SPEAKY?</a></li>
+		</ul>
+	</div><!-- /navbar -->
+</div><!-- /footer -->
+</div><!-- ALL PAGE DIV -->

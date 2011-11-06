@@ -1,0 +1,31 @@
+<head> 
+    
+	<title>SpeakySpeaky</title> 
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <!-- Point to the CSS file in the public folder for the jquery -->
+    <link rel="stylesheet" href="/public/jquery.mobile-1.0b2.min.css" />
+	<link rel="stylesheet" href="/public/jquery.mobile.swatch.j.css" type="text/css" />
+    <!-- You also need the JQuery JavaScript file -->
+    <script type="text/javascript" src="/public/jquery-1.6.2.min.js"></script>
+    <!-- Modify some of the defaults for jquery -->
+    <script type="text/javascript">
+
+    <!-- Code taken from the jquery website for setting defaults, where we extend .mobile. -->
+    $(document).bind("mobileinit", function(){
+      $.extend(  $.mobile , {
+        <!-- change the loading message to false -->
+        loadingMessage: false
+		// ajaxLinksEnabled = false
+		// ajaxEnabled: false //removes the problem with UPDATE
+		
+      });
+    });
+    <!-- finally, we need the jquery.mobile JavaScript. -->
+    </script><script type="text/javascript" src="/public/jquery.mobile-1.0b2.min.js"></script>
+
+	
+
+</head> 
+<body>
+    <%= @content %>
+</body>

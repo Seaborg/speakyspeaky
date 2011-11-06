@@ -1,0 +1,40 @@
+<!-- wrap the page in data-role -->
+<div data-role="page">
+
+<!-- wrap the header in data-role -->
+<div data-role="header">
+  <h1>Edit <%= @everydayphrase.english %></h1>
+    <!-- Icons for back and delete are added to the buttons -->
+    <a data-icon="back"  href="<%= url_for :action => :show, :id => @everydayphrase.object %>">Back</a>
+    <a data-icon="delete" href="<%= url_for :action => :delete, :id => @everydayphrase.object %>">Delete</a>
+</div>
+
+<!-- Wrap content in data-role -->
+<div data-role="content">
+  <form method="post" action="<%= url_for :action => :update %>">
+    <input type="hidden" name="id" value="<%= @everydayphrase.object %>"/>
+    <ul data-role="listview">
+
+      <!-- list items unchanged from original Rhodes generated code -->
+      <li>
+        <label for="everydayphrase[english]" class="fieldLabel">English</label>
+        <input type="text" name="everydayphrase[english]" value="<%= @everydayphrase.english %>" <%= placeholder( "English" ) %> />
+      </li>
+	 <li>
+        <label for="everydayphrase[polish]" class="fieldLabel">Polish</label>
+        <input type="text" name="everydayphrase[polish]" value="<%= @everydayphrase.polish %>" <%= placeholder( "Polish" ) %> />
+      </li>
+	<li>
+        <label for="everydayphrase[permalink]" class="fieldLabel">Permalink</label>
+        <input type="text" name="everydayphrase[permalink]" value="<%= @everydayphrase.permalink %>" <%= placeholder( "Permalink" ) %> />
+      </li>
+      <!-- rest of product attribute list items -->
+
+    </ul>
+
+    <br/>
+    <button type="submit" data-theme="a" name="submit" value="submit-value" class="ui-btn-hidden">Update</button>
+  </form>
+</div>
+
+</div>

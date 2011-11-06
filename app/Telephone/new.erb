@@ -1,0 +1,33 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>New <%= @telephone.title %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="back" data-direction="reverse">Cancel</a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :create %>">
+      <input type="hidden" name="id" value="<%= @telephone.object %>"/>
+
+      
+          <div data-role="fieldcontain">
+            <label for="telephone[polish]" class="fieldLabel">Polish</label>
+            <input type="text" id="telephone[polish]" name="telephone[polish]" <%= placeholder("Polish") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="telephone[english]" class="fieldLabel">English</label>
+            <input type="text" id="telephone[english]" name="telephone[english]" <%= placeholder("English") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="telephone[permalink]" class="fieldLabel">Permalink</label>
+            <input type="text" id="telephone[permalink]" name="telephone[permalink]" <%= placeholder("Permalink") %> />
+          </div>
+      
+
+      <input type="submit" value="Create"/>
+    </form>
+  </div>
+
+</div>

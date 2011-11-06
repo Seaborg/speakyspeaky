@@ -1,0 +1,34 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <%= link_to "Back", :action => :show, :id => @manner.object %>
+    <h1>Edit <%= @manner.polish%></h1>
+    <%= link_to "Delete", :action => :delete, :id => @manner.object %>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+      <input type="hidden" name="id" value="<%= @manner.object %>"/>
+      <table>
+          
+          <tr>
+              <td class="itemLabel">Polish: </td>
+              <td class="itemValue"><input type="text" name="manner[polish]" value="<%= @manner.polish %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">English: </td>
+              <td class="itemValue"><input type="text" name="manner[english]" value="<%= @manner.english %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Permalink: </td>
+              <td class="itemValue"><input type="text" name="manner[permalink]" value="<%= @manner.permalink %>"/></td>
+          </tr>
+          
+      </table>
+      <input type="submit" value="Update"/>
+    </form>
+  </div>
+
+</div>

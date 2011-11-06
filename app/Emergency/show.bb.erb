@@ -1,0 +1,30 @@
+<div data-role="page" data-add-back-btn="true">
+
+  <div data-role="header" data-position="inline">
+    <%= link_to "Back", :action => :index %>
+    <h1><%= @emergency.polish %></h1>
+    <%= link_to "Edit", :action => :edit, :id => @emergency.object %>
+  </div>
+
+  <div data-role="content">
+    <table>
+      
+      <tr>
+    	<td class="itemLabel">Polish</td>
+        <td class="itemValue"><%= @emergency.polish%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">English</td>
+        <td class="itemValue"><%= @emergency.english%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Permalink</td>
+        <td class="itemValue"><%= @emergency.permalink%></td>
+      </tr>
+      
+    </table>
+  </div>
+
+</div>

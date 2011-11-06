@@ -1,0 +1,33 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>New <%= @manner.title %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="back" data-direction="reverse">Cancel</a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :create %>">
+      <input type="hidden" name="id" value="<%= @manner.object %>"/>
+
+      
+          <div data-role="fieldcontain">
+            <label for="manner[polish]" class="fieldLabel">Polish</label>
+            <input type="text" id="manner[polish]" name="manner[polish]" <%= placeholder("Polish") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="manner[english]" class="fieldLabel">English</label>
+            <input type="text" id="manner[english]" name="manner[english]" <%= placeholder("English") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="manner[permalink]" class="fieldLabel">Permalink</label>
+            <input type="text" id="manner[permalink]" name="manner[permalink]" <%= placeholder("Permalink") %> />
+          </div>
+      
+
+      <input type="submit" value="Create"/>
+    </form>
+  </div>
+
+</div>

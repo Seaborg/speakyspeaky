@@ -1,0 +1,38 @@
+<!-- wrap the page in data-role -->
+<div data-role="page"  data-cache="never">
+
+<!-- wrap the header in data-role -->
+<div data-role="header">
+  <h1><%= @everydayphrase.english %></h1>
+    <!-- Icons for back and check are added to the buttons -->
+    <a data-icon="back"  href="<%= url_for :action => :index %>">Back</a>
+    <a data-icon="check" class="ui-btn-right" href="<%= url_for :action => :edit, :id => @everydayphrase.object %>">Edit</a>
+</div>
+
+<!-- Wrap content in data-role, add data-role to listview -->
+<div data-role="content">
+    <ul data-role="listview" >
+        <li>
+            <div class="ui-grid-a">
+              <!-- Grid: name on left, value on right -->
+              <div class="ui-block-a"><b>E:</b></div>
+            <div class="ui-block-b">
+				<a href="<%= url_for :action => :play_file, :query => {:file_name => '/public/sounds/'+"#{@everydayphrase.permalink}"+'eng'+'.mp3'}, :id => @everydayphrase.object %>"><%= @everydayphrase.english %></a></div>		
+            </div>
+        </li>
+		<li>
+            <div class="ui-grid-a">
+              <!-- Grid: name on left, value on right -->
+              <div class="ui-block-a"><b>P:</b></div>
+              <div class="ui-block-b"><a href="<%= url_for :action => :play_file, :id => @everydayphrase.object %>"><%= @everydayphrase.polish %></a></div>
+            </div>
+        </li>
+		<li>
+          <div class="itemLabel">Permalink:</div>
+          <div class="itemValue"><%= @everydayphrase.permalink %></div>
+        </li>
+        <!-- rest of product attribute list items -->
+
+    </ul>
+</div>
+</div>

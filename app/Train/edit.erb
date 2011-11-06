@@ -1,0 +1,32 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Edit <%= @train.polish %></h1>
+    <a href="<%= url_for :action => :show, :id => @train.object %>" class="ui-btn-left" data-icon="back" data-direction="reverse">Cancel</a>
+    <a href="<%= url_for :action => :delete, :id => @train.object %>" class="ui-btn-right" data-icon="delete" data-direction="reverse">Delete</a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+      <input type="hidden" name="id" value="<%= @train.object %>"/>
+      
+          <div data-role="fieldcontain">
+            <label for="train[polish]" class="fieldLabel">Polish</label>
+            <input type="text" id="train[polish]" name="train[polish]" value="<%= @train.polish %>" <%= placeholder( "Polish" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="train[english]" class="fieldLabel">English</label>
+            <input type="text" id="train[english]" name="train[english]" value="<%= @train.english %>" <%= placeholder( "English" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="train[permalink]" class="fieldLabel">Permalink</label>
+            <input type="text" id="train[permalink]" name="train[permalink]" value="<%= @train.permalink %>" <%= placeholder( "Permalink" ) %> />
+          </div>
+      
+      <input type="submit" value="Update"/>
+    </form>
+  </div>
+
+</div>

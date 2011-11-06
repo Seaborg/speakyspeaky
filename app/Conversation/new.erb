@@ -1,0 +1,33 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>New <%= @conversation.title %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="back" data-direction="reverse">Cancel</a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :create %>">
+      <input type="hidden" name="id" value="<%= @conversation.object %>"/>
+
+      
+          <div data-role="fieldcontain">
+            <label for="conversation[polish]" class="fieldLabel">Polish</label>
+            <input type="text" id="conversation[polish]" name="conversation[polish]" <%= placeholder("Polish") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="conversation[english]" class="fieldLabel">English</label>
+            <input type="text" id="conversation[english]" name="conversation[english]" <%= placeholder("English") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="conversation[permalink]" class="fieldLabel">Permalink</label>
+            <input type="text" id="conversation[permalink]" name="conversation[permalink]" <%= placeholder("Permalink") %> />
+          </div>
+      
+
+      <input type="submit" value="Create"/>
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,34 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <%= link_to "Back", :action => :show, :id => @train.object %>
+    <h1>Edit <%= @train.polish%></h1>
+    <%= link_to "Delete", :action => :delete, :id => @train.object %>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+      <input type="hidden" name="id" value="<%= @train.object %>"/>
+      <table>
+          
+          <tr>
+              <td class="itemLabel">Polish: </td>
+              <td class="itemValue"><input type="text" name="train[polish]" value="<%= @train.polish %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">English: </td>
+              <td class="itemValue"><input type="text" name="train[english]" value="<%= @train.english %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Permalink: </td>
+              <td class="itemValue"><input type="text" name="train[permalink]" value="<%= @train.permalink %>"/></td>
+          </tr>
+          
+      </table>
+      <input type="submit" value="Update"/>
+    </form>
+  </div>
+
+</div>
